@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>All Candidates</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 70%;
+      margin: 40px auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+    .btn {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h2 style="text-align:center;">All Candidates</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Party</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="c : ${candidates}">
+          <td th:text="${c.id}"></td>
+          <td th:text="${c.name}"></td>
+          <td th:text="${c.party}"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <a href="/admin/home"><button class="btn">Back to Admin Home</button></a>
+  </div>
+</body>
+</html>

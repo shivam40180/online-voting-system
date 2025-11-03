@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1d2671, #c33764);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar h2 {
+      color: #fff;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .navbar-links a {
+      text-decoration: none;
+      color: #cc0f0f;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .taskbar a:hover {
+      margin-left: 10px;
+      
+      color: #c33764;
+    }
+
+    /* DASHBOARD CARD */
+    .container {
+      max-width: 450px;
+      margin: 100px auto;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      backdrop-filter: blur(6px);
+    }
+
+    .container h3 {
+      font-size: 1.5em;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .container p {
+      font-size: 1em;
+      margin-bottom: 25px;
+    }
+
+    button {
+      background-color: #fff;
+      color: #333;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 25px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #c33764;
+      color: #fff;
+    }
+
+    .message {
+      color: #00ffcc;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    .headline{
+      margin-right: 10px;
+      background-color: transparent;
+      
+    }
+    .taskbar{
+      background-color: transparent;
+    }
+  
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="headline"><h2>Admin Dashboard</h2></div>
+
+    <div class="taskbar"><a href="/">Home</a> <a href="/logout">Logout</a></div>
+   
+  </div>
+
+  <div class="container">
+    <h3>Welcome, Admin</h3>
+    <p>Manage election system below:</p>
+
+    <form action="/admin/add" method="get">
+      <button type="submit">➕ Add Candidate</button>
+    </form>
+
+    <form action="/results" method="get">
+      <button type="submit">📊 View Results</button>
+    </form>
+
+    <div th:if="${message}" class="message" th:text="${message}"></div>
+  </div>
+</body>
+</html>

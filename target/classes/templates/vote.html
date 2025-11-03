@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Vote</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Vote for Your Candidate</h2>
+
+    <!-- Show logged-in user -->
+    <p th:if="${voter}">
+      Logged in as: <b th:text="${voter.username}"></b>
+      &nbsp; <a href="/logout">Logout</a>
+    </p>
+
+    <!-- Voting Form -->
+    <form action="/vote" method="post">
+      <!-- Hidden voterId field (important fix) -->
+      <input type="hidden" name="voterId" th:value="${voter.id}" />
+
+      <table>
+        <thead>
+          <tr>
+            <th>Select</th>
+            <th>Name</th>
+            <th>Party</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="c : ${candidates}">
+            <td>
+              <input type="radio" name="candidateId" th:value="${c.id}" required>
+            </td>
+            <td th:text="${c.name}"></td>
+            <td th:text="${c.party}"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+      <button type="submit">Submit Vote</button>
+    </form>
+
+    <!-- Error message if any -->
+    <p th:if="${error}" th:text="${error}" style="color:red;"></p>
+
+    <!-- Navigation buttons -->
+    <p><a href="/results"><button type="button">View Results</button></a></p>
+    <p><a href="/"><button type="button">Home</button></a></p>
+  </div>
+</body>
+</html>

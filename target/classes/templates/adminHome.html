@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    h2 {
+      color: #333;
+    }
+    .btn {
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome, Admin</h2>
+    <p>Use the buttons below to manage the voting system.</p>
+
+    <a href="/admin/addCandidatePage"><button class="btn">Add Candidate</button></a>
+    <a href="/admin/viewCandidates"><button class="btn">View All Candidates</button></a>
+    <a href="/results"><button class="btn">View Voting Results</button></a>
+    <a href="/logout"><button class="btn" style="background-color:#f44336;">Logout</button></a>
+  </div>
+</body>
+</html>

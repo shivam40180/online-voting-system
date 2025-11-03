@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Results</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Election Results</h2>
+    <p th:if="${message}" style="color:green" th:text="${message}"></p>
+    <table>
+      <thead><tr><th>Candidate</th><th>Party</th><th>Votes</th></tr></thead>
+      <tbody>
+        <tr th:each="c : ${candidates}">
+          <td th:text="${c.name}"></td>
+          <td th:text="${c.party}"></td>
+          <td th:text="${c.votesCount}"></td>
+        </tr>
+      </tbody>
+    </table>
+    <p><a href="/"><button>Home</button></a></p>
+  </div>
+</body>
+</html>
