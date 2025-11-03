@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: online-voting-system
+    env: java
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/online-voting-1.0.0.jar
+    envVars:
+      - key: PORT
+        value: 8080
